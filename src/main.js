@@ -1,9 +1,10 @@
-(function ( window, document ) {
+var localPad = (function ( localPad, window, document ) {
 	if ( !window.localStorage ) {
 		alert ( "Sorry, your browsers doesen't support localStorage :/ localPad can't run." );
 		return;
 	}
 
+	// setup new DOM
 	var html = '<!DOCTYPE html><html><head>'
 		+ '<title>untitled pad</title>'
 		+ '<style>'
@@ -23,7 +24,23 @@
 	newDocument.write ( html );
 	newDocument.close ();
 
-	// var padsEl = document.getElementById ( 'pads' );
-	// var titleEl = document.getElementById ( 'title' );
-	// var contentEl = document.getElementById ( 'content' );
-} ( window, document ) );
+	// obtain references to the elements we'll be working with
+	var padsEl = document.getElementById ( 'pads' ),
+		titleEl = document.getElementById ( 'title' ),
+		contentEl = document.getElementById ( 'content' );
+
+	// load existing pads
+	// var padsIds = localStorage.getItem ( 'pads_ids' );
+	// if ( padsIds === null ) {
+	// 	// no existing pads
+	// 	padsIds = [];
+	// } else {
+	// 	padsIds = JSON.parse ( padsIds );
+	// 	for ( var i = 0; i < padsIds.length; i++ ) {
+	// 		var padId = padsIds[i];
+			
+	// 	}
+	// }
+
+	return localPad;
+} ( localPad, window, document) );
